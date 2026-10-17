@@ -1,5 +1,4 @@
-﻿
-using ToDo.Model;
+﻿using ToDo.Model;
 
 namespace TodoList.Api.Models;
 
@@ -15,7 +14,5 @@ public class Todo
 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-    public string UserId { get; set; } = string.Empty;
-
-    public AppUser User { get; set; } = null!;
+    public AppUser AppUser { get; set; } = null!;
 }
