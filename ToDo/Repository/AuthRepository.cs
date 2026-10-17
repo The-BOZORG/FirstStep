@@ -11,7 +11,7 @@ public class AuthRepository : IAuthRepository
 
     public AuthRepository(UserManager<AppUser> _userManager)
     {
-        userManager = _userManager;
+        this.userManager = _userManager;
     }
 
     public async Task<IdentityResult> RegisterAsync(RegisterDto dto)
