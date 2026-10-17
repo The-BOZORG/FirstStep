@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi;
 using ToDo.Data;
+using ToDo.Model;
 using ToDo.Repositories;
 using ToDo.Repository;
 
@@ -24,8 +25,14 @@ builder.Services.AddDbContext<TodoDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("ToDoConnectionSting")));
 
 builder.Services.AddScoped<ITodoRepository, TodoRepository>();
+builder.Services.AddScoped<IAuthRepository, AuthRepository>();
+
 
 builder.Services.AddControllers();
+
+builder.Services
+    .AddIdentityCore<AppUser>()
+    .AddEntityFrameworkStores<TodoDbContext>();
 
 
 var app = builder.Build();
