@@ -1,6 +1,41 @@
-@ToDo_HostAddress = http://localhost:5132
+@ToDo_HostAddress = https://localhost:7016
 
 GET {{ToDo_HostAddress}}/weatherforecast/
 Accept: application/json
+
+###
+
+GET {{ToDo_HostAddress}}/api/todos
+
+###
+
+@id=1
+GET {{ToDo_HostAddress}}/api/Todos/{{id}}
+
+###
+
+POST {{ToDo_HostAddress}}/api/todos
+Content-Type: application/json
+
+{
+  "Title":"test",
+  "Description":"this is test"
+}
+
+###
+
+@id=1
+PUT {{ToDo_HostAddress}}/api/Todos/{{id}}
+Content-Type: application/json
+
+{
+  "Title":"test2",
+  "Description":"this is test2"
+}
+
+###
+
+@id=1
+DELETE {{ToDo_HostAddress}}/api/Todos/{{id}}
 
 ###
