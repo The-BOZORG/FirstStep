@@ -12,5 +12,5 @@ public interface ITodoRepository
 
     Task<TodoResponseDto?> UpdateAsync(int id, UpdateTodoDto dto);
 
-    Task DeleteAsync(int id);
+    Task<bool> DeleteAsync(int id);
 }

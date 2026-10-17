@@ -92,16 +92,17 @@ namespace ToDo.Repository
             };
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task<bool> DeleteAsync(int id)
         {
             var todo = await context.Todos.FindAsync(id);
 
             if (todo is null)
-                return;
+                return false;
 
             context.Todos.Remove(todo);
-
             await context.SaveChangesAsync();
+
+            return true;
         }
     }
 }
