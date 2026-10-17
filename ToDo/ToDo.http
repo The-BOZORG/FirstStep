@@ -39,3 +39,24 @@ Content-Type: application/json
 DELETE {{ToDo_HostAddress}}/api/Todos/{{id}}
 
 ###
+
+POST {{ToDo_HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+  "Email" : "soroush@yahoo.com",
+  "Password" : "123456"
+}
+
+###
+
+POST {{ToDo_HostAddress}}/api/auth/register
+Content-Type: application/json
+
+{
+  "UserName" : "soroush",
+  "Email" : "soroush@yahoo.com",
+  "Password" : "123456"
+}
+
+###

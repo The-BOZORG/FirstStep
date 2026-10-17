@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi;
 using ToDo.Data;
@@ -30,9 +31,19 @@ builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 
 builder.Services.AddControllers();
 
-builder.Services
-    .AddIdentityCore<AppUser>()
+builder.Services.AddIdentityCore<AppUser>()
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<TodoDbContext>();
+
+builder.Services.Configure<IdentityOptions>(opttions =>
+{
+    opttions.Password.RequireDigit = false;
+    opttions.Password.RequireLowercase = false;
+    opttions.Password.RequireNonAlphanumeric = false;
+    opttions.Password.RequireUppercase = false;
+    opttions.Password.RequiredLength = 4; 
+    opttions.Password.RequiredUniqueChars = 1;
+});
 
 
 var app = builder.Build();
